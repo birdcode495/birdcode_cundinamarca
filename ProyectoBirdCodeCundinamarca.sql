@@ -23,3 +23,8 @@ UPDATE trochilidae_cundinamarca SET municipio = bogota.mpio_cnmbr
 FROM bogota
 WHERE ST_Intersects(trochilidae_cundinamarca.geom, bogota.geom);
 
+--- Diagnostico de especies de colibries en Cundinamarca por Municipio
+
+SELECT municipio, COUNT(DISTINCT species) AS num_especies
+FROM trochilidae_cundinamarca GROUP BY municipio ORDER BY num_especies DESC;
+
